@@ -165,6 +165,13 @@ export declare const Is: {
      */
     symbol: (value: any) => boolean;
     /**
+    * Determine whether the given value is a regular expression
+    *
+    * @param {*} value
+    * @return boolean
+    */
+    regex: (value: any) => boolean;
+    /**
      * Check Whether the given value is a date
      *
      * @param {*} value

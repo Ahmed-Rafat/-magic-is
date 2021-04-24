@@ -187,6 +187,13 @@ exports.Is = {
      */
     symbol: (value) => typeof value === 'symbol',
     /**
+    * Determine whether the given value is a regular expression
+    *
+    * @param {*} value
+    * @return boolean
+    */
+    regex: (value) => exports.Is.undefined(value) && value.constructor.name == 'RegExp',
+    /**
      * Check Whether the given value is a date
      *
      * @param {*} value
