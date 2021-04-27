@@ -340,31 +340,25 @@ export declare const Is: {
         *
         * @returns boolean
         */
-        opera: () => boolean;
+        opera: () => number;
         /**
          * Check the visitor opening from Internet Explorer 6-11 browser
          *
          * @returns boolean
          */
-        ie: () => boolean;
+        ie: () => number | boolean;
         /**
          * Check the visitor opening from Edge 20+ browser
          *
          * @returns boolean
          */
-        edge: () => "" | "string" | "number" | "bigint" | "boolean" | "symbol" | "undefined" | "object" | "function";
+        edge: () => boolean;
         /**
         * Check the visitor opening from Edge (based on chromium) browser
         *
         * @returns boolean
         */
         edgeChromium: () => boolean;
-        /**
-         * Check the visitor opening from Blink engine
-         *
-         * @returns boolean
-         */
-        blink: () => boolean;
     };
 };
 export default Is;

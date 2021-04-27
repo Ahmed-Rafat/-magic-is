@@ -10,7 +10,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Is = void 0;
 const google_libphonenumber_1 = require("google-libphonenumber");
 const phoneUtilits = google_libphonenumber_1.PhoneNumberUtil.getInstance();
-const windows = window;
 exports.Is = {
     /**
      * Check whether the given value is null
@@ -367,49 +366,43 @@ exports.Is = {
          *
          * @returns boolean
          */
-        chrome: () => !!windows.chrome && (!!windows.chrome.webstore || !!windows.chrome.runtime),
+        chrome: () => /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor),
         /**
          * Check the visitor opening from Firefox 1.0+ browser
          *
          * @returns boolean
          */
-        firefox: () => typeof windows.InstallTrigger !== 'undefined',
+        firefox: () => navigator.userAgent.indexOf('Firefox') !== -1,
         /**
          * Check the visitor opening from Safari 3.0+ "[object HTMLElementConstructor]"
          *
          * @returns boolean
          */
-        safari: () => /constructor/i.test(windows.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!windows['safari'] || windows['safari'].pushNotification),
+        safari: () => /^((?!chrome|android).)*safari/i.test(navigator.userAgent),
         /**
         * Check the visitor opening from Opera 8.0+ browser
         *
         * @returns boolean
         */
-        opera: () => (!!windows.opr && !!windows.opr.addons) || !!windows.opera || navigator.userAgent.indexOf(' OPR/') >= 0,
+        opera: () => navigator.userAgent.indexOf("Opera"),
         /**
          * Check the visitor opening from Internet Explorer 6-11 browser
          *
          * @returns boolean
          */
-        ie: () => /*@cc_on!@*/ false || !!windows.document.documentMode,
+        ie: () => navigator.userAgent.indexOf("MSIE ") || !!navigator.userAgent.match(/Trident.*rv\:11\./),
         /**
          * Check the visitor opening from Edge 20+ browser
          *
          * @returns boolean
          */
-        edge: () => !exports.Is.browser.ie && typeof !!windows.StyleMedia,
+        edge: () => navigator.appVersion.indexOf('Edge') > -1,
         /**
         * Check the visitor opening from Edge (based on chromium) browser
         *
         * @returns boolean
         */
         edgeChromium: () => exports.Is.browser.chrome && (navigator.userAgent.indexOf("Edg") != -1),
-        /**
-         * Check the visitor opening from Blink engine
-         *
-         * @returns boolean
-         */
-        blink: () => (exports.Is.browser.chrome || exports.Is.browser.firefox) && !!windows.CSS,
     }
 };
 exports.default = exports.Is;
