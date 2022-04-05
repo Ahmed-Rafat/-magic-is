@@ -1,6 +1,6 @@
 {
-  "name": "magic-is",
-  "version": "1.0.2",
+  "name": "@magic/is",
+  "version": "1.0.3",
   "description": "Check values type & others",
   "main": "index.js",
   "typings": "index.d.ts",
