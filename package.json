@@ -1,14 +1,11 @@
 {
   "name": "@magic/is",
-  "version": "1.0.3",
+  "version": "1.0.0",
   "description": "Check values type & others",
   "main": "index.js",
   "typings": "index.d.ts",
   "author": {
     "email": "ahmed.rafat147@gmail.com",
     "name": "AhmEd RaFat"
-},
-  "dependencies": {
-    "google-libphonenumber": "3.2.19"
-  }
+}
 }
